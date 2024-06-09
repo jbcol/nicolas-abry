@@ -1,0 +1,10 @@
+---
+interface LinkTopNavProps {
+    title: string;
+    href: string;
+}
+
+const { title, href } = Astro.props;
+---
+
+<a href={href} class="rounded-md border border-white p-1 size-fit self-center flex hover:bg-white hover:text-black transition-colors duration-300">{title}</a>

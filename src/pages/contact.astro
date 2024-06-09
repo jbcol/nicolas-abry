@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Nicolas Abry" class="flex flex-col w-full overflow-hidden place-content-center text-center items-center self-center"> 
+ 	<section class="grid grid-cols-1 lg:grid-cols-2 lg:flex-row gap-4 w-full min-h-screen pt-28 text-white">
+		<div class="flex flex-col w-full lg:basis-1/2 place-content-center items-center">
+            <div class="flex flex-col p-4 lg:px-20 self-center gap-6 items-center text-left reveal-from-bottom">
+                <h1 class="text-5xl w-full lg:text-left reveal-from-right uppercase">Contact</h1>
+				<div class="flex flex-col gap-8">
+					<div class=" text-justify">
+						<div class="font-bold">Société individuelle</div>
+						Monsieur ABRY Nicolas <br>
+						Siège social : <br>
+						RUE DE LA CORRATERIE 14, <br>
+						1204 GENEVE, CH-SUISSE <br>
+					</div>
+					<div class="text-justify">
+						Monsieur Nicolas ABRY en qualité de Président Directeur Général de la société immatriculée CHE-143.248.282 au registre du commerce du canton de Genève.
+						<br>
+						Pour toute prise de rendez-vous avec Monsieur Nicolas ABRY, vous pouvez prendre contact auprès de l'adresse e-mail suivante : <br>
+						<a class="inline-flex font-bold no-underline border rounded-md p-1" href="mailto:contact@nicolasabry.ch">contact@nicolasabry.ch</a>
+					</div>
+				</div>
+            </div>
+        </div>
+        <div class="flex-1 min-h-[300px] flex basis-1/2 bg-[url('src/static/jet.jpg')] bg-no-repeat bg-center bg-contain reveal-from-right">
+        </div>
+	</section>
+</Layout>

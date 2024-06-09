@@ -1,0 +1,20 @@
+---
+const  { title1, title2, text }  = Astro.props;
+const { class: className } = Astro.props;
+
+interface Props {
+    title1?: string;
+    title2?: string;
+    text?: string;
+    class?: string;
+}
+---
+
+<div class:list={["flex flex-col basis-1/2 bg-white dark:bg-slate-900 drop-shadow-[0_0_8px_rgba(0,0,0,0.2)] rounded-md space-y-6 p-4",className]}>
+        {title1?<span class="text-2xl text-left w-fit font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4FD9BC] to-[#52C8E8]">{title1}</span>:null}        
+        <div class="self-center items-center place-content-center p-2 fill-teal-400 h-[190px] w-[190px]">
+                <slot/>
+        </div>
+        {title2?<p class="text-lg font-semibold text-left text-black dark:text-white">{title2}</p>:null}
+        {text?<p class="text-sm text-black dark:text-white text-justify">{text}</p>:null}
+</div>  

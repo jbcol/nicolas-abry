@@ -1,0 +1,48 @@
+---
+
+---
+
+<footer class="flex flex-col w-full h-fit bg-black border-t border-white border-opacity-40 text-dark dark:text-white place-content-center">
+    <div class="grid grid-cols-3 sm:flex-row gap-8 w-full max-w-[1300px] self-center h-fit justify-evenly p-8">
+        {
+            [
+                {
+                    title: "Prestations",
+                    links: [
+                        { title: "Offre", url: "#" },
+                        { title: "Testez moi !", url: "#" }
+                    ]
+                },
+                {
+                    title: "A propos",
+                    links: [
+                        { title: "Blog", url: "#" },
+                        { title: "Support", url: "#" }
+                    ]
+                }
+            ].map((section, index) => (
+                <div class="flex flex-col size-full">
+                    <p class="flex text-center w-full text-white text-xl font-bold uppercase">{section.title}</p>
+                    {
+                        section.links.map((link, index) => (
+                            <a class="flex text-white text-opacity-50 cursor-pointer no-underline hover:text-white" href={link.url}>{link.title}</a>
+                        ))
+                    }
+                </div>
+            ))
+        }
+    </div>
+    <div class="flex p-2 w-full px-16 self-center border-t border-white border-opacity-40 text-center text-xs text-opacity-70 whitespace-nowrap justify-evenly">
+        <p class="flex cursor-default">Copyright © 2024 NicolasAbry.</p>
+        {
+            [
+                { title: "CGU", url: "#" },
+                { title: "CGV", url: "#" },
+                { title: "Mentions légales", url: "#" }
+            ].map((link, index) => (
+                <a class="flex text-white text-opacity-50 cursor-pointer no-underline hover:text-white" href={link.url}>{link.title}</a>
+            ))
+
+        }
+    </div>
+</footer>

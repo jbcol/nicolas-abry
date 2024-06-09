@@ -1,0 +1,38 @@
+---
+interface CarouselProps {
+    images: string[];
+    duration: number;
+}
+
+const { images, duration } = Astro.props;
+
+const length = images.length;
+
+const keyframe = `
+    @keyframes r {
+        0% { transform: translateX(100%) }
+        ${(100 / length) * 2}% { transform: translateX(-100%) }
+        100% { transform: translateX(-100%) }
+    }
+`;
+---
+<div class="relative grid overflow-hidden w-[1000px] h-[266px]">
+    {
+      images.map((img: string, index: number) => (
+        <div 
+            class={`absolute size-full items-center place-content-center`}
+            style={{ 
+                animation: `r ${duration}s infinite linear`,
+                animationDelay: `calc(${index} * ${(duration / length)}s)`
+            }}
+        >
+            <img src={img} class="grayscale" />
+        </div>
+      )).reverse()
+    }
+    <div 
+        style="background-image: linear-gradient(to right,#fff,rgba(255, 255, 255, 0) 20%,rgba(255, 255, 255, 0) 80%,#fff);"
+        class="absolute size-full z-40"></div>
+</div>
+
+<style set:html={keyframe} />

@@ -1,0 +1,19 @@
+---
+interface LinkTopNavProps {
+    title: string;
+    href: string;
+}
+
+const { title, href } = Astro.props;
+---
+
+<a id={href} href={href} class={`flex border lg:border-0 rounded-md p-2 w-full lg:w-fit cursor-pointer text-xs py-2 whitespace-nowrap uppercase h-fit self-center relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-white after:ease-out after:duration-300 after:transition-transform hover:after:scale-x-100 hover:after:origin-center`}>{title}</a>
+
+<script>
+    const href = Astro.props.href;
+    const link = document.getElementById(href);
+    const selected = window.location.pathname.endsWith(href);
+    if (selected) {
+        link?.classList.add("underline", "underline-offset-[11px]", "decoration-[2px]", "decoration-teal-400");
+    }
+</script>

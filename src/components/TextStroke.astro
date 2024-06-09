@@ -1,0 +1,15 @@
+---
+interface Astro {
+  props: {
+    text: string;
+    };
+}
+
+const  { text }  = Astro.props;
+const strokeColor ="#2DD4BF";
+const strokeWidth = 1.5;
+const textShadow = `text-shadow:${strokeWidth}px ${strokeWidth}px 0 ${strokeColor}, ${-strokeWidth}px ${strokeWidth}px 0 ${strokeColor}, ${strokeWidth}px ${-strokeWidth}px 0 ${strokeColor}, ${-strokeWidth}px ${-strokeWidth}px 0 ${strokeColor}, ${strokeWidth}px 0 0 ${strokeColor}, ${-strokeWidth}px 0 0 ${strokeColor}, 0 ${strokeWidth}px 0 ${strokeColor}, 0 ${-strokeWidth}px 0 ${strokeColor}`;
+---
+
+<span class="xl:text-7xl text-3xl text-white dark:text-slate-950 font-bold bg-clip-text uppercase" style={textShadow}>{text}</span>
+

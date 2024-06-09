@@ -1,0 +1,42 @@
+---
+import LinkTopNav from "./LinkTopNav.astro";
+
+interface LinkPicker {
+    pickerTitle: string;
+    links: {title: string; href: string;}[];
+}
+
+const { pickerTitle, links } = Astro.props;
+---
+
+
+<details id="test" class="group flex flex-col border lg:border-0 rounded-md w-full lg:w-fit">
+    <summary class={`flex cursor-pointer gap-2 text-xs p-2 whitespace-nowrap uppercase size-fit self-center relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-white after:ease-out after:duration-300 after:transition-transform hover:after:scale-x-100 hover:after:origin-center`}>
+        {pickerTitle}
+        <svg class="flex self-center h-[10px] group-open:rotate-90 fill-white" viewBox="0 0 100 100">
+            <polyline points="5,5 50,50 5,95" fill="none" stroke="currentColor" stroke-width="10"></polyline>
+        </svg>
+    </summary>
+    <div class="group-open:flex flex-col bg-black lg:absolute p-2 lg:border border-white rounded-md gap-4">
+        {
+            links.map((link:{title: string; href: string;}) => (
+                <LinkTopNav title={link.title} href={link.href}/>
+            ))
+        }
+    </div>
+    <script>
+        document.addEventListener('mouseover', (mouseEvent)=>{
+            const details = document.getElementById('test');
+            if (details && details.contains(mouseEvent.target as Node)) {
+                details.setAttribute('open', 'true');
+            }
+        });
+
+        document.addEventListener('mouseout', (mouseEvent)=>{
+            const details = document.getElementById('test');
+            if (details && !details.contains(mouseEvent.target as Node)) {
+                details.removeAttribute('open');
+            }
+        });
+    </script>
+</details>

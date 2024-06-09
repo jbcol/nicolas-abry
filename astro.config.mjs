@@ -10,6 +10,6 @@ export default defineConfig({
     inlineStylesheets: `always`,
     //format: 'file'
   },
-  base: '/',
-  site: 'https://www.nicolasabry.ch/',
+  base: 'nicolas-abry',
+  site: 'https://jbcol.github.io',
 });

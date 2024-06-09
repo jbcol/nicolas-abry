@@ -1,0 +1,13 @@
+<div id="spin" class="flex h-fit w-fit p-[1px] drop-shadow-[0_0_8px_rgba(0,0,0,0.2)] rounded-md relative overflow-hidden before:absolute before:[content:''] before:-z-[1] before:inset-[-1000%] place-self-center">
+	<div class="flex h-fit w-fit bg-white dark:bg-slate-950 p-6 rounded-md">
+		<slot/>
+	</div>
+</div>
+
+<style>
+	#spin::before {
+	background-image: conic-gradient(from 0deg at 50% 50%, transparent, #2DD4BF 5%, transparent 10%);
+	animation: 9s linear infinite rotKeyframe;
+	}
+	@keyframes rotKeyframe {0% {transform: rotate(0);}100% {transform: rotate(360deg);}}
+</style>

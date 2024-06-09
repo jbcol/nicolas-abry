@@ -1,13 +1,19 @@
 ---
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header/Header.astro';
+import Socials from '@components/Socials.astro';
+
 interface Props {
 	title: string;
+	class?: string;
 }
 
 const { title } = Astro.props;
+const { class: className } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -16,9 +22,78 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<main>
+	<body class="transition-all duration-300 flex flex-col bg-black dark:bg-dark left-0 text-black dark:text-white m-0 min-h-screen w-full justify-between">
+		<Header />
+		<Socials />
+		<main class:list={className}>
 			<slot />
 		</main>
+		<Footer />
 	</body>
 </html>
+
+<style is:global>
+	@font-face {
+	  font-family: 'la-prairie-helvetica';
+	  src: url('/fonts/la-prairie-helvetica.woff2') format('woff2');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: swap;
+	}
+	
+	body {
+	  font-family: 'la-prairie-helvetica', sans-serif;
+	}
+</style>
+
+<script is:inline>
+	function reveal() {
+		var reveals = document.querySelectorAll(".reveal-from-bottom, .reveal-from-left, .reveal-from-right");
+		for (var i = 0; i < reveals.length; i++) {
+			var windowHeight = window.innerHeight;
+			var elementTop = reveals[i].getBoundingClientRect().top;
+			var elementVisible = 150;
+			if (elementTop < windowHeight - elementVisible) {
+			reveals[i].classList.add("active");
+			} else {
+			reveals[i].classList.remove("active");
+			}
+		}
+	}
+	window.addEventListener("scroll", reveal);
+	window.onload = (event) => {reveal()};
+</script>
+
+<style is:global>
+	.reveal-from-bottom{
+		position: relative;
+		transform: translateY(150px);
+		opacity: 0;
+		transition: 1s all ease;
+	}
+
+	.reveal-from-left{
+		position: relative;
+		transform: translateX(-150px);
+		opacity: 0;
+		transition: 1s all ease;
+	}
+
+	.reveal-from-right{
+		position: relative;
+		transform: translateX(150px);
+		opacity: 0;
+		transition: 1s all ease;
+	}
+
+	.reveal-from-bottom.active{
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	.reveal-from-left.active, .reveal-from-right.active{
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+</style>

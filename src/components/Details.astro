@@ -1,0 +1,21 @@
+---
+interface Props {
+  summary: string;
+  content?: string;
+  class?: string;
+}
+const  { summary, content="" }  = Astro.props;
+const { class: className } = Astro.props;
+---
+
+<details class="group flex bg-slate-200 dark:bg-transparent w-[100%] border border-teal-400 rounded-md list-none appearance-none">
+    <summary class="p-4 justify-between items-center flex font-bold list-none cursor-pointer">
+        <h2 class="text-justify hover:text-teal-400 max-w-[95%]">{summary}</h2>
+        <svg class="flex h-[20px] w-[20px] rotate-90 group-open:rotate-180" viewBox="0 0 13 7" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.8434 0.256281C6.20603 -0.0854279 6.79397 -0.0854278 7.1566 0.256281L12.728 5.50628C13.0907 5.84799 13.0907 6.40201 12.728 6.74372C12.3654 7.08543 11.7775 7.08543 11.4148 6.74372L6.5 2.11244L1.58517 6.74372C1.22254 7.08543 0.634602 7.08543 0.271972 6.74372C-0.0906581 6.40201 -0.0906571 5.84799 0.271973 5.50628L5.8434 0.256281Z" fill="currentColor"></path></svg>
+    </summary>
+    <div class:list={["flex flex-col p-0 text-justify text-sm",className]}>
+        <slot/>
+        {content}
+    </div>
+</details>
+

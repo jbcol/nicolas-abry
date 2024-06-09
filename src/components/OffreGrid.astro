@@ -1,0 +1,89 @@
+---
+const features = [
+	{
+		title: 'Campagnes de simulation de phishing',
+		description: 'Campagnes de fake phishing personnalisées (Phishing classique, Smishing, Quishing, scénarios d’ingénierie sociale…).',
+
+		available: [true, true, true],
+	},
+	{
+		title: 'Dashboards',
+		description: 'Tableaux de bord pour suivre l’avancement des campagnes en temps réel.',
+		available: [true, true, true],
+	},
+	{
+		title: 'Sensibilisation',
+		description: 'Sensibilisation des collaborateurs avec des formations adaptées',
+		available: [true, true, true],
+	},
+	{
+		title: 'Support',
+		description: 'Support technique et commercial',
+		available: [true, true, true],
+	},
+	{
+		title: 'MOOC',
+		description: 'MOOC de la cybersécurité personnalisé aux salariés (parcours adapté aux pistes d’amélioration détectées, débriefing et conseils…) ',
+		available: [false, true, true],
+	},
+	{
+		title: 'Osint',
+		description: 'Analyse de l’exposition de votre entreprise et personnalisation des scénarios par l’utilisation de sources d’informations ouvertes.',
+		available: [false, true, true],
+	},
+	{
+		title: 'Rapport final',
+		description: 'Rapport final d’analyse de l’entreprise (diagnostic, conséquences, étude des risques et solutions envisageables)',
+		available: [false, true, true],
+	},
+	{
+		title: 'Analyse des fuites de données',
+		description: 'Analyse des fuites de données de l’entreprise sur le dark web',
+		available: [false, true, true],
+	},
+	{
+		title: 'Analyse des softwares',
+		description: 'Analyse des softwares utilisés par l’entreprise',
+		available: [false, true, true],
+	},
+	{
+		title: 'Audit du SI (rapport)',
+		description: 'Audit du système d’information de l’entreprise',
+		available: [false, true, true],
+	},
+	{
+		title: 'Implémentation de solutions',
+		description: 'Implémentation de solutions de cybersécurité',
+		available: [false, false, true],
+	},
+	{
+		title:'Conduite du changement',
+		description: 'Aide à une utilisation plus sûre des softwares de l’entreprise (conduite du changement, gestion des permissions, paramétrage pertinent)',
+		available: [false, false, true],
+	}
+];
+---
+<>
+	<div class="grid divide-y divide-teal-400 grid-cols-5 w-full rounded-md overflow-hidden border border-teal-400 bg-teal-400 bg-opacity-10">
+		<div class="p-4 text-md md:text-xl font-bold col-span-2 border-t border-teal-400">Prestation</div>
+		{
+			["Standard", "Premium", "Privilege"].map((title) => (
+				<div class="p-4 text-md md:text-xl font-bold flex place-content-center items-center">{title}</div>
+			))
+		}
+		{
+			features.map((feature, index) => (
+				<>
+					<div class="p-2 col-span-2 text-left">
+						<div class="text-teal-400 font-bold">{feature.title}</div>
+						<div class="text-sm">{feature.description}</div>	
+					</div>
+					{feature.available.map((available) => (
+						<div class="p-2 flex place-content-center items-center">{available ? '✅' : '-'}</div>
+					))}
+				</>
+			))
+		}
+	</div>
+	<p class="text-sm dark:text-gray-300 px-2">Nous vous accompagnons tout au long de votre projet pour vous garantir un résultat à la hauteur de vos attentes.</p>
+</>

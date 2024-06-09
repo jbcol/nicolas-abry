@@ -1,8 +1,61 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import img1 from '../static/img1.jpg';
+import Button from '@components/Button.astro';
+import Carousel from '@components/Carousel.astro';
 ---
 
-<Layout title="NicolasAbry">
+<Layout title="Nicolas Abry" class="flex flex-col w-full overflow-hidden place-content-center text-center items-center self-center"> 
+ 	<section class="grid grid-cols-1 lg:grid-cols-2 w-full h-screen pt-28">
+        <div class="flex flex-col w-full md:basis-1/2 place-content-center items-center">
+            <div class="flex flex-col px-4 lg:px-20 self-center gap-6 items-center md:text-left reveal-from-bottom">
+                <h1 class="text-2xl lg:text-5xl w-full md:text-left reveal-from-right uppercase">Nicolas Abry</h1>
+                <h2 class="text-xl w-full md:text-left reveal-from-right text-center lg:text-left">Le Clairvoyant et Médium pur des personnalités <br> du monde des affaires et des célébrités. </h2>
+                <p class="text-sm text-justify">
+                    Nicolas ABRY est une personnalité dans le monde des affaires avec plusieurs cordes à son arc, dans le domaine des relations publiques, apports d'affaires, consulting, il pourra également vous surprendre avec ses dons de naissance de clairvoyant médium pur, son extra-sensibilité à ressentir les guides de lumière. Il peut agir pour vous, en toute transparence et bienveillance autant pour vous accompagner dans votre vie personnelle et privée, autant sur le plan des prédictions, soins énergétiques, développement personnel, rituels spirituels ainsi que faire prospérer votre entreprise et vous accompagner en vous apportant une clientèle aisée et élitiste. Le chemin de la lumière céleste s'offre à vous venez l'emprunter...
+                </p>
+                <div class="w-full flex place-content-center md:place-content-start">
+                    <Button href="#section2" title="En savoir plus"/>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:flex basis-1/2 bg-[url('src/static/img1.jpg')] bg-no-repeat bg-center bg-contain reveal-from-right">
+        </div>
+	</section>
 
+    <section id="section2" class="flex flex-col w-full p-20 gap-4 bg-white text-black">
+        <h2 class="flex text-4xl">Partenaires</h2>
+
+        <div class="w-full flex place-content-center">
+            <Carousel duration={50} images={["/src/static/lux-radio.png"]}/>
+        </div>
+          
+        <div>
+            <button class="rounded-md border border-black p-2 size-fit self-center flex hover:bg-black hover:text-white transition-colors duration-300">Devenir partenaire</button>
+        </div>
+    </section>
+
+    <section class="flex flex-col w-full py-20 gap-4 bg-black text-white place-content-center items-center">
+        <h2 class="flex text-4xl">Témoignages</h2>
+        <p>
+            Découvrez les nombreux témoignages des consultants du médium Nicolas Abry. <br>
+            Encore une grand merci pour leur fidélité.
+        </p>
+        <Button title="Voir plus"/>
+    </section>
+    <section class="flex flex-col w-full py-20 gap-4 bg-white text-black place-content-center items-center">
+        <div class="flex flex-col text-left gap-4 px-[30%]">
+            <h2 class="flex text-4xl">Remerciements</h2>
+            <p class="flex whitespace-pre-wrap leading-tight italic text-justify">
+                Je tiens à remercier tous les consultants qui m'ont fait confiance et qui m'ont permis de les aider <br>
+                à trouver des réponses à leurs questions. C'est un honneur pour moi de pouvoir les accompagner dans leur vie.<br>
+                <br>
+                Je remercie également mes partenaires qui m'ont permis de développer mon activité et de la faire connaître.<br>
+                <br>
+                Merci pour votre confiance et votre fidélité.
+            </p>
+            <div class="w-full text-right font-bold italic">Nicolas Abry</div>
+        </div>
+    </section>
 </Layout>
