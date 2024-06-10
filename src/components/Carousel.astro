@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface CarouselProps {
     images: string[];
     duration: number;
@@ -18,7 +20,7 @@ const keyframe = `
 ---
 <div class="relative grid overflow-hidden w-[1000px] h-[266px]">
     {
-      images.map((img: string, index: number) => (
+      images.map((img: ImageMetadata, index: number) => (
         <div 
             class={`absolute size-full items-center place-content-center`}
             style={{ 
@@ -26,7 +28,7 @@ const keyframe = `
                 animationDelay: `calc(${index} * ${(duration / length)}s)`
             }}
         >
-            <img src={img} class="grayscale" />
+            <Image class={`max-h-full w-auto self-center mx-auto`} src={img} alt="Nicolas Abry"/>
         </div>
       )).reverse()
     }
