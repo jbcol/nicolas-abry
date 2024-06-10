@@ -17,7 +17,7 @@ const { pickerTitle, links } = Astro.props;
             <polyline points="5,5 50,50 5,95" fill="none" stroke="currentColor" stroke-width="10"></polyline>
         </svg>
     </summary>
-    <div class="group-open:flex flex-col bg-black lg:absolute p-2 lg:border border-white rounded-md gap-4">
+    <div class="group-open:flex flex-col bg-black lg:absolute z-[50] p-2 lg:border border-white rounded-md gap-4">
         {
             links.map((link:{title: string; href: string;}) => (
                 <LinkTopNav title={link.title} href={link.href}/>

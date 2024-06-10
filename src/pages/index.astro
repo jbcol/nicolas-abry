@@ -12,11 +12,11 @@ import Carousel from '@components/Carousel.astro';
             <div class="flex flex-col px-4 lg:px-20 self-center gap-6 items-center md:text-left reveal-from-bottom">
                 <h1 class="text-2xl lg:text-5xl w-full md:text-left reveal-from-right uppercase">Nicolas Abry</h1>
                 <h2 class="text-xl w-full md:text-left reveal-from-right text-center lg:text-left">Le Clairvoyant et Médium pur des personnalités <br> du monde des affaires et des célébrités. </h2>
-                <p class="text-sm text-justify">
+                <p class="text-sm text-justify text-pretty [word-spacing:-2px]">
                     Nicolas ABRY est une personnalité dans le monde des affaires avec plusieurs cordes à son arc, dans le domaine des relations publiques, apports d'affaires, consulting, il pourra également vous surprendre avec ses dons de naissance de clairvoyant médium pur, son extra-sensibilité à ressentir les guides de lumière. Il peut agir pour vous, en toute transparence et bienveillance autant pour vous accompagner dans votre vie personnelle et privée, autant sur le plan des prédictions, soins énergétiques, développement personnel, rituels spirituels ainsi que faire prospérer votre entreprise et vous accompagner en vous apportant une clientèle aisée et élitiste. Le chemin de la lumière céleste s'offre à vous venez l'emprunter...
                 </p>
                 <div class="w-full flex place-content-center md:place-content-start">
-                    <Button href="#section2" title="En savoir plus"/>
+                    <Button href=`${import.meta.env.BASE_URL}/portrait` title="En savoir plus"/>
                 </div>
             </div>
         </div>
