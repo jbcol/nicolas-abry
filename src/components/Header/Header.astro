@@ -71,7 +71,7 @@ const links=[ //C'est la seule variable à modifier dans le header, le reste se 
 ]
 ---
 
-<nav class="h-fit flex-col place-content-center bg-black w-full top-0 fixed z-[100] duration-300 transition-transform ease-in-out">
+<nav class="h-fit flex-col place-content-center bg-black w-full top-0 text-white fixed z-[100] duration-300 transition-transform ease-in-out">
     <div class="flex lg:flex-col pb-2 w-full justify-between border-b border-white !border-opacity-40">
         <a class="flex gap-0 flex-col text-center whitespace-nowrap  text-xl lg:text-3xl font-bold text-white px-4 p-1 group no-underline place-content-center items-center place-self-center hover:scale-x-105 duration-300" href={`${import.meta.env.BASE_URL}`}>
             NICOLAS ABRY
@@ -157,9 +157,9 @@ const links=[ //C'est la seule variable à modifier dans le header, le reste se 
             menuList.style.maxHeight = max;
         }
         span1?.classList.toggle('-rotate-45');
-        span1?.classList.toggle('translate-y-[9.5px]');
+        span1?.classList.toggle('translate-y-[9px]');
         span2?.classList.toggle('invisible');
         span3?.classList.toggle('rotate-45');
-        span3?.classList.toggle('translate-y-[-9.5px]');
+        span3?.classList.toggle('translate-y-[-9px]');
     });
 </script>
