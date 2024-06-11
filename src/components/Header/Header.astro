@@ -7,8 +7,12 @@ import Hamburger from "./Hamburger.astro";
 
 const links=[ //C'est la seule variable à modifier dans le header, le reste se fait tout seul
     {
-        pickerTitle: "Consultations",
+        pickerTitle: "Prestations",
         links: [
+            {
+                title: "Voyance",
+                href: `${import.meta.env.BASE_URL}/consultation-voyance`
+            },
             {
                 title: "Soins énergétiques",
                 href: `${import.meta.env.BASE_URL}/soins-energetiques`
@@ -17,10 +21,6 @@ const links=[ //C'est la seule variable à modifier dans le header, le reste se 
                 title: "Rituels et coaching",
                 href: `${import.meta.env.BASE_URL}/rituels-coachings`
             },
-            {
-                title: "Consultation Voyance",
-                href: `${import.meta.env.BASE_URL}/consultation-voyance`
-            }
         ]
     },
     {

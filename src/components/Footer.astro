@@ -1,7 +1,7 @@
 ---
 const data = [
         {
-            title: "Consultations",
+            title: "Prestations",
             links: [
                 { title: "Voyance", url: `${import.meta.env.BASE_URL}/consultation-voyance` },
                 { title: "Rituels et Coachings", url: `${import.meta.env.BASE_URL}/rituels-coachings` },
@@ -9,7 +9,7 @@ const data = [
             ]
         },
         {
-            title: "A propos",
+            title: "à propos",
             links: [
                 { title: "Portrait", url: `${import.meta.env.BASE_URL}/portrait` },
                 { title: "Témoignages", url: `${import.meta.env.BASE_URL}/temoignages` },
@@ -28,7 +28,7 @@ const data = [
 ---
 
 <footer class="flex flex-col gap-8 w-full h-fit bg-black border-t border-white border-opacity-40 text-dark dark:text-white place-content-center">
-    <div class="grid grid-cols-1 lg:grid-cols-3 sm:flex-row gap-8 w-full max-w-[1300px] self-center h-fit justify-evenly p-8">
+    <div class="flex flex-col lg:flex-row gap-8 w-full max-w-[1300px] self-center h-fit justify-evenly p-8">
         {
             data.map((section, index) => (
                 <div class="flex flex-col size-full">
@@ -48,7 +48,7 @@ const data = [
                 { title: "Copyright © 2024 NicolasAbry.", url: "#" },
                 //{ title: "CGU", url: "#" },
                 { title: "CGV", url: "#" },
-                { title: "Mentions légales", url: `${import.meta.env.BASE_URL}/registre.pdf` }
+                { title: "Mentions légales", url: `` }
             ].map((link, index) => (
                 <a class="flex w-fit whitespace-nowrap text-white text-opacity-50 cursor-pointer no-underline hover:text-white" href={link.url}>{link.title}</a>
             ))
