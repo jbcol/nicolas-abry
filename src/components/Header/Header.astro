@@ -71,31 +71,12 @@ const links=[ //C'est la seule variable à modifier dans le header, le reste se 
 ]
 ---
 
-<nav class="h-fit flex-col place-content-center bg-black w-full top-0 text-white fixed z-[100] duration-300 transition-transform ease-in-out">
-    <div class="flex lg:flex-col pb-2 w-full justify-between border-b border-white !border-opacity-40">
+<nav class="h-fit py-1 flex flex-col place-content-center border-b border-white !border-opacity-40 bg-black w-full top-0 text-white fixed z-[100]">
+    <div class="flex lg:flex-col pb-2 w-full justify-between ">
         <a class="flex gap-0 flex-col text-center whitespace-nowrap  text-xl lg:text-3xl font-bold text-white px-4 p-1 group no-underline place-content-center items-center place-self-center hover:scale-x-105 duration-300" href={`${import.meta.env.BASE_URL}`}>
             NICOLAS ABRY
             <div class="self-center uppercase flex text-xs text-opacity-70 text-white">The celestial light</div>
         </a>
-        <div 
-            id="nav"
-            style="max-height:100px; transition:max-height 0.5s ease-out"
-            class="hidden lg:flex justify-between lg:w-full max-h-26 z-50 bg-black self-center max-w-[1312px] lg:justify-between w-full overflow-hidden">
-            {
-                links.map((link) => {
-                    if (link.links.length > 1) {
-                        return (
-                            <LinkPicker pickerTitle={link.pickerTitle} links={link.links}/>
-                        )
-                    }
-                    return(
-                    <LinkTopNav title={link.pickerTitle} href={link.links[0].href}/>
-                )
-                })
-            }
-            <Button href="/contact" title="Contactez-moi"/>
-            <Language />
-        </div>
         <div class="flex gap-4 px-4 lg:hidden">
             <Language />
             <Hamburger />
@@ -103,9 +84,8 @@ const links=[ //C'est la seule variable à modifier dans le header, le reste se 
     </div>
     <div 
         id="menuList" 
-        style="max-height:0px; transition:max-height 0.5s ease-out" 
-        class="flex lg:hidden transition-all overflow-hidden flex-col bg-black w-full h-screen right-0 left-0 top-20 z-40 space-y-6">
-        <div class="flex flex-col gap-4 p-6">
+        style="transition:max-height 0.5s ease-in-out" 
+        class="flex flex-col space-y-6 lg:space-y-0 px-6 lg:p-0 lg:flex-row transition-all max-h-[0px] lg:max-h-[100px] overflow-hidden bg-black w-full h-screen lg:h-fit z-50 self-center lg:max-w-[1312px] lg:justify-between">
             {
                 links.map((link) => {
                     if (link.links.length > 1) {
@@ -118,7 +98,6 @@ const links=[ //C'est la seule variable à modifier dans le header, le reste se 
                 )
                 })
             }
-        </div>
     </div>
 </nav>
 
@@ -126,16 +105,14 @@ const links=[ //C'est la seule variable à modifier dans le header, le reste se 
     let lastScrollTop =window.scrollY || document.documentElement.scrollTop;
     window.addEventListener('scroll',
         function handleScroll() {
-            const menuList = document.getElementById('menuList');
-            if (menuList && menuList.style.maxHeight === '100vh') {return}
             if (window.innerWidth <= 1024) {return}
-            const scrollTopPosition =window.scrollY || document.documentElement.scrollTop;
-            const nav = this.document.getElementById("nav") as HTMLElement;
-            if(nav){
+            const scrollTopPosition = window.scrollY || document.documentElement.scrollTop;
+            const menuList = this.document.getElementById("menuList") as HTMLElement;
+            if(menuList){
                 if (scrollTopPosition > lastScrollTop) {
-                    nav.style.maxHeight = '0px';
+                    menuList.style.maxHeight = '0px';
                 } else if (scrollTopPosition < lastScrollTop) {
-                    nav.style.maxHeight = '100px';
+                    menuList.style.maxHeight = '100px';
                 }
                 lastScrollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition;
             }
@@ -153,7 +130,7 @@ const links=[ //C'est la seule variable à modifier dans le header, le reste se 
 
     menuButton?.addEventListener('click', () => {
         if (menuList) {
-            const max = (menuList.style.maxHeight === '0px') ? '100vh' : '0px';
+            const max = (menuList.style.maxHeight != '100vh') ? '100vh' : '0px';
             menuList.style.maxHeight = max;
         }
         span1?.classList.toggle('-rotate-45');
